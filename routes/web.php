@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PersonController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,3 +64,16 @@ Route::get('deretBilangan/{bilangan}', function ($bilangan) {
         }
     }
 });
+
+Route::get('/person',[PersonController::class,'index']);
+Route::get('/person/show/{param}',[PersonController::class,'show']);
+Route::resource('/student',StudentController::class);
+
+Route::get('/homepage',function(){
+    return view('home', ["name"=>'Robby Gustian']);
+}); 
+
+Route::get('/sendData',[PersonController::class,'sendData']);
+
+
+Route::get('my-academic/{course}/{task}/{quiz}/{mid_term}/{final}',[StudentController::class,'myCourse']);
