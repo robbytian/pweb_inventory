@@ -1,1 +1,5 @@
-<h1>Ini View Index</h1>
+@extends("layouts.app")
+
+@section("content")
+    <h1>Index Person</h1>
+@stop

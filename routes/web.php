@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welocme');
+    return view('welcome');
 });
 
 Route::get('/hello', function () {
@@ -73,7 +73,10 @@ Route::get('/homepage',function(){
     return view('home', ["name"=>'Robby Gustian']);
 }); 
 
-Route::get('/sendData',[PersonController::class,'sendData']);
+Route::get('/person/send-data',[PersonController::class,'sendData']);
 
 
-Route::get('my-academic/{course}/{task}/{quiz}/{mid_term}/{final}',[StudentController::class,'myCourse']);
+Route::get('student/my-academic/{course}/{task}/{quiz}/{mid_term}/{final}',[StudentController::class,'myCourse']);
+
+Route::get('/person/add',[PersonController::class,'add']);
+Route::post('/person/addProcess',[PersonController::class,'addProcess']);
